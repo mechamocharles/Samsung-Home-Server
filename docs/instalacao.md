@@ -68,7 +68,7 @@ ssh-keygen -t ed25519
 ssh-copy-id -p 8022 <IP-DO-CELULAR>   # no Windows, copie a chave pública manualmente para ~/.ssh/authorized_keys
 ```
 
-No Windows, sem `ssh-copy-id`, pelo PowerShell:
+No Windows, o atalho `windows/S9 Painel.bat` (opção 8) faz isso por você, veja [`acesso-pelo-pc.md`](acesso-pelo-pc.md). Manualmente, sem `ssh-copy-id`, pelo PowerShell:
 
 ```powershell
 type $env:USERPROFILE\.ssh\id_ed25519.pub | ssh -p 8022 <IP-DO-CELULAR> "cat >> ~/.ssh/authorized_keys"

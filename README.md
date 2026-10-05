@@ -13,6 +13,7 @@ Em vez de deixar o aparelho na gaveta, ele passa a hospedar seus próprios apps,
 - **Ambiente de desenvolvimento** pronto: Python, Node.js LTS, Git, tmux, rsync, htop.
 - **Comandos utilitários**: `status` (serviços, disco e IP), `logs <serviço>` e `rx` (recebe arquivos pelo terminal).
 - **Script para publicar qualquer app como serviço** (`add-service.sh`).
+- **Painel para Windows**: atalhos de duplo clique para administrar o servidor do PC, sem digitar comandos.
 
 ## Requisitos
 
@@ -70,11 +71,24 @@ Samsung-Home-Server/
 │   ├── setup-homeserver.sh   # instalação base do servidor
 │   ├── add-service.sh        # cria um serviço runit para qualquer app
 │   └── logs                  # acompanha o log de um serviço
+├── windows/
+│   ├── S9 Terminal.bat       # abre o terminal do celular via SSH
+│   └── S9 Painel.bat         # menu com as tarefas do dia a dia
 └── docs/
     ├── instalacao.md         # passo a passo detalhado
+    ├── acesso-pelo-pc.md     # controlar o servidor pelo Windows
     ├── operacao.md           # uso diário: serviços, cron, backup, atualização
     └── solucao-de-problemas.md
 ```
+
+## Controle pelo PC (Windows)
+
+Com o servidor de pé, o celular pode ficar num canto, só no carregador. Os atalhos da pasta [`windows/`](windows) permitem administrá-lo com um duplo clique:
+
+- **`S9 Terminal.bat`**: abre direto o terminal do celular.
+- **`S9 Painel.bat`**: menu para ver status, acompanhar logs, reiniciar serviços, enviar arquivos, baixar backups e configurar o login sem senha.
+
+Edite a linha `set S9=IP-DO-CELULAR` nos dois arquivos com o IP do seu aparelho e, na primeira vez, use a **opção 8** do painel (login sem senha). Detalhes em [`docs/acesso-pelo-pc.md`](docs/acesso-pelo-pc.md).
 
 ## Publicando seus próprios apps
 

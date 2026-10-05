@@ -1,0 +1,6 @@
+# Scripts do Termux (Linux) precisam de quebra de linha LF, mesmo se clonados no Windows
+*.sh text eol=lf
+scripts/logs text eol=lf
+
+# Atalhos do Windows precisam de CRLF
+*.bat text eol=crlf
