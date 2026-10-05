@@ -1,0 +1,10 @@
+#!/data/data/com.termux/files/usr/bin/sh
+# Acompanha o log de um serviço runit.
+# Uso: logs <servico>      (ex.: logs sshd, logs crond, logs meu-site)
+if [ -z "$1" ]; then
+  echo "Uso: logs <servico>"
+  echo "Serviços disponíveis:"
+  ls "$PREFIX/var/log/sv" 2>/dev/null
+  exit 1
+fi
+tail -n 50 -f "$PREFIX/var/log/sv/$1/current"

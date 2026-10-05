@@ -1,0 +1,23 @@
+# Segredos e configurações locais
+.env
+*.env
+!.env.example
+*.key
+*.pem
+id_*
+!id_*.pub
+
+# Backups e dados
+*.sql
+*.sql.gz
+*.tar.gz
+backups/
+
+# Logs
+*.log
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
