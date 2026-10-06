@@ -11,6 +11,11 @@ Baixe o APK do **Termux** e do **Termux:Boot** nas páginas de releases do GitHu
 
 > **Importante:** todos os componentes do Termux precisam vir da **mesma origem** (GitHub). Misturar a versão do F-Droid ou da Play Store com add-ons do GitHub (ou vice-versa) causa falhas de assinatura e de instalação de pacotes.
 
+> **Android 5 ou 6** (ex.: Galaxy Note 4, S5): o Termux estável exige Android 7+. Use o APK
+> `termux-app_v0.119.0-beta.*+apt-android-5-github-debug_armeabi-v7a.apk` da página de releases.
+> O repositório de pacotes dessa variante é congelado (Python 3.8, Node.js 12, OpenSSH 8.1) e não
+> tem `cronie`; o `setup-homeserver.sh` detecta isso e usa o `crond` do busybox.
+
 Depois de instalar, **abra o Termux:Boot uma vez**. Sem isso o Android não permite que ele execute no boot.
 
 ## 2. Ajustes no Android

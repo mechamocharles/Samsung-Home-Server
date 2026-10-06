@@ -5,7 +5,22 @@ echo "== Atualizando pacotes =="
 yes | pkg update
 yes | pkg upgrade -o Dpkg::Options::="--force-confold"
 echo "== Instalando ferramentas =="
-pkg install -y python nodejs-lts git termux-services tmux cronie nano htop rsync openssh
+# Termux para Android 5/6 (variante apt-android-5) usa um repositorio congelado sem 'cronie';
+# nesse caso o crond do busybox (dependencia do termux-services) faz o papel.
+CRON_PKG=cronie
+apt-cache show cronie >/dev/null 2>&1 || CRON_PKG=""
+pkg install -y python nodejs-lts git termux-services tmux nano htop rsync openssh $CRON_PKG
+
+if [ -z "$CRON_PKG" ]; then
+  echo "== Servico crond (busybox) =="
+  mkdir -p $PREFIX/var/service/crond/log $PREFIX/var/spool/cron/crontabs
+  touch $PREFIX/var/service/crond/down
+  printf '#!/data/data/com.termux/files/usr/bin/sh\nexec crond -f -d 8 -c %s 2>&1\n' \
+    "$PREFIX/var/spool/cron/crontabs" > $PREFIX/var/service/crond/run
+  printf '#!/data/data/com.termux/files/usr/bin/sh\nexec %s\n' \
+    "$PREFIX/share/termux-services/svlogger" > $PREFIX/var/service/crond/log/run
+  chmod +x $PREFIX/var/service/crond/run $PREFIX/var/service/crond/log/run
+fi
 
 echo "== Pastas =="
 mkdir -p ~/apps ~/files ~/logs ~/bin ~/.termux/boot ~/.ssh
