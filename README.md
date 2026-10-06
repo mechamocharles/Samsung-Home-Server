@@ -20,7 +20,7 @@ Em vez de deixar o aparelho na gaveta, ele passa a hospedar seus próprios apps,
 | Item | Detalhe |
 |---|---|
 | Aparelho | Samsung Galaxy S9+ (ou outro Android com Termux) |
-| Termux | Versão do **GitHub** (a do F-Droid/Play Store não é compatível com os add-ons atuais) |
+| Termux | Versão do **GitHub** (a do F-Droid/Play Store não é compatível com os add-ons atuais). Em **Android 5/6** use a variante `apt-android-5`, veja [`docs/instalacao.md`](docs/instalacao.md) |
 | Add-ons | **Termux:Boot** (também da versão GitHub, mesma origem do Termux) |
 | Rede | Wi-Fi da casa, de preferência com **IP fixo reservado no roteador** |
 | Energia | Carregador conectado; recomenda-se limitar a carga a ~80% para preservar a bateria |
